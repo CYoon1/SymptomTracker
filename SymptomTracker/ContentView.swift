@@ -21,9 +21,13 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        HStack{
+                            Text("hello from dad")
+                            Text(item.timestamp!, formatter: itemFormatter)
+
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
