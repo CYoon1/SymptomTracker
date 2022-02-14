@@ -14,21 +14,7 @@ struct DataEntryView: View {
         sortDescriptors: [],
         animation: .default) private var entries: FetchedResults<Entry>
     
-    enum coughSeverity: Int, CaseIterable {
-        case none = 0, mild, moderate, severe
-        var text: String {
-            switch self {
-            case .none:
-                return "none"
-            case .mild:
-                return "mild"
-            case .moderate:
-                return "moderate"
-            case .severe:
-                return "severe"
-            }
-        }
-    }
+    
     
     @State var coughSeverityIndex = 0
     
@@ -38,19 +24,19 @@ struct DataEntryView: View {
         Form {
             Text("DataEntryView")
             Picker("Cough Severity", selection: $coughSeverityIndex) {
-                ForEach(0..<coughSeverity.allCases.count) {
-                    Text(coughSeverity.allCases[$0].text).tag($0)
+                ForEach(0..<SymptomSeverity.allCases.count) {
+                    Text(SymptomSeverity.allCases[$0].text).tag($0)
                 }
             }
             Button {
-                addEntry(cough: coughSeverityIndex)
+                addEntry(entryData: EntryData(cough: SymptomSeverity(rawValue: coughSeverityIndex) ?? .unknown))
                 coughSeverityIndex = 0
             } label: {
                 Text("Add")
             }
             ForEach(entries) { entry in
                 HStack {
-                    let cough = coughSeverity(rawValue: Int(entry.cough)) ?? .none
+                    let cough = SymptomSeverity(rawValue: Int(entry.cough)) ?? .none
                     Text(cough.text)
 //                    Text("Cough: \(entry.cough)")
                 }
@@ -60,11 +46,13 @@ struct DataEntryView: View {
     }
 }
 extension DataEntryView {
-    private func addEntry(cough: Int) {
+    private func addEntry(entryData: EntryData) {
         withAnimation {
             let entry = Entry(context: viewContext)
-            entry.timeStamp = Date()
-            entry.cough = Int16(cough)
+            
+            entry.timeStamp = entryData.timeStamp
+            entry.cough = Int16(entryData.cough.rawValue)
+            
             do {
                 try viewContext.save()
             } catch {

@@ -17,6 +17,7 @@
 		D8AFAAF927B9CDE800A2AC06 /* SymptomTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAAF827B9CDE800A2AC06 /* SymptomTrackerTests.swift */; };
 		D8AFAB0327B9CDE800A2AC06 /* SymptomTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAB0227B9CDE800A2AC06 /* SymptomTrackerUITests.swift */; };
 		D8AFAB0527B9CDE800A2AC06 /* SymptomTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAB0427B9CDE800A2AC06 /* SymptomTrackerUITestsLaunchTests.swift */; };
+		D8AFAB1227B9DBD200A2AC06 /* EntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAB1127B9DBD200A2AC06 /* EntryData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D8AFAAFE27B9CDE800A2AC06 /* SymptomTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SymptomTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFAB0227B9CDE800A2AC06 /* SymptomTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomTrackerUITests.swift; sourceTree = "<group>"; };
 		D8AFAB0427B9CDE800A2AC06 /* SymptomTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8AFAB1127B9DBD200A2AC06 /* EntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D8AFAAEB27B9CDE800A2AC06 /* Persistence.swift */,
 				D8AFAAED27B9CDE800A2AC06 /* SymptomTracker.xcdatamodeld */,
 				913AD0F527B9D3E90050C3C3 /* DataEntryView.swift */,
+				D8AFAB1127B9DBD200A2AC06 /* EntryData.swift */,
 				D8AFAAE827B9CDE800A2AC06 /* Preview Content */,
 			);
 			path = SymptomTracker;
@@ -270,6 +273,7 @@
 				D8AFAAEF27B9CDE800A2AC06 /* SymptomTracker.xcdatamodeld in Sources */,
 				D8AFAAEC27B9CDE800A2AC06 /* Persistence.swift in Sources */,
 				D8AFAAE527B9CDE700A2AC06 /* ContentView.swift in Sources */,
+				D8AFAB1227B9DBD200A2AC06 /* EntryData.swift in Sources */,
 				D8AFAAE327B9CDE700A2AC06 /* SymptomTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
