@@ -13,7 +13,7 @@ struct SymptomTrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DataEntryView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

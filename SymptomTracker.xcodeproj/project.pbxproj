@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		913AD0F627B9D3E90050C3C3 /* DataEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AD0F527B9D3E90050C3C3 /* DataEntryView.swift */; };
 		D8AFAAE327B9CDE700A2AC06 /* SymptomTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAAE227B9CDE700A2AC06 /* SymptomTrackerApp.swift */; };
 		D8AFAAE527B9CDE700A2AC06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAAE427B9CDE700A2AC06 /* ContentView.swift */; };
 		D8AFAAE727B9CDE800A2AC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AFAAE627B9CDE800A2AC06 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		913AD0F527B9D3E90050C3C3 /* DataEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntryView.swift; sourceTree = "<group>"; };
 		D8AFAADF27B9CDE700A2AC06 /* SymptomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymptomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFAAE227B9CDE700A2AC06 /* SymptomTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomTrackerApp.swift; sourceTree = "<group>"; };
 		D8AFAAE427B9CDE700A2AC06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				D8AFAAE627B9CDE800A2AC06 /* Assets.xcassets */,
 				D8AFAAEB27B9CDE800A2AC06 /* Persistence.swift */,
 				D8AFAAED27B9CDE800A2AC06 /* SymptomTracker.xcdatamodeld */,
+				913AD0F527B9D3E90050C3C3 /* DataEntryView.swift */,
 				D8AFAAE827B9CDE800A2AC06 /* Preview Content */,
 			);
 			path = SymptomTracker;
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				913AD0F627B9D3E90050C3C3 /* DataEntryView.swift in Sources */,
 				D8AFAAEF27B9CDE800A2AC06 /* SymptomTracker.xcdatamodeld in Sources */,
 				D8AFAAEC27B9CDE800A2AC06 /* Persistence.swift in Sources */,
 				D8AFAAE527B9CDE700A2AC06 /* ContentView.swift in Sources */,
