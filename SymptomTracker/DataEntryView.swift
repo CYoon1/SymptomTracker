@@ -6,7 +6,12 @@
 //
 
 import SwiftUI
-
+extension Entry {
+    var coughSeverity : SymptomSeverity {
+        get { SymptomSeverity(rawValue: Int(cough)) ?? .unknown}
+        set { cough = Int16(newValue.rawValue)}
+    }
+}
 struct DataEntryView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -16,7 +21,8 @@ struct DataEntryView: View {
     
     
     
-    @State var coughSeverityIndex = 0
+    @State var coughSeverityIndex = SymptomSeverity.unknown.rawValue
+    @State var coughSeverity = SymptomSeverity.unknown
     
     
     
@@ -26,11 +32,16 @@ struct DataEntryView: View {
             Picker("Cough Severity", selection: $coughSeverityIndex) {
                 ForEach(0..<SymptomSeverity.allCases.count) {
                     Text(SymptomSeverity.allCases[$0].text).tag($0)
+                }.onChange(of: coughSeverityIndex) { newValue in
+                    coughSeverity = SymptomSeverity(rawValue: Int(coughSeverityIndex)) ?? .unknown
                 }
             }
+            .pickerStyle(.segmented)
             Button {
-                addEntry(entryData: EntryData(cough: SymptomSeverity(rawValue: coughSeverityIndex) ?? .unknown))
-                coughSeverityIndex = 0
+                addEntry(entryData: EntryData(cough: coughSeverity))
+                coughSeverity = SymptomSeverity.unknown
+                coughSeverityIndex = coughSeverity.rawValue
+                
             } label: {
                 Text("Add")
             }
@@ -38,9 +49,9 @@ struct DataEntryView: View {
                 HStack {
                     let cough = SymptomSeverity(rawValue: Int(entry.cough)) ?? .none
                     Text(cough.text)
-//                    Text("Cough: \(entry.cough)")
                 }
-            }
+            }.onDelete(perform: deleteEntries)
+                
 
         }
     }
