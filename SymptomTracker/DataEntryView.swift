@@ -44,11 +44,16 @@ struct DataEntryView: View {
             }
             Button {
                 addEntry(cough: coughSeverityIndex)
+                coughSeverityIndex = 0
             } label: {
                 Text("Add")
             }
             ForEach(entries) { entry in
-                Text("Cough: \(entry.cough)")
+                HStack {
+                    let cough = coughSeverity(rawValue: Int(entry.cough)) ?? .none
+                    Text(cough.text)
+//                    Text("Cough: \(entry.cough)")
+                }
             }
 
         }
