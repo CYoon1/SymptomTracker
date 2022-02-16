@@ -35,22 +35,11 @@ struct DataEntryView: View {
             Text("o2Sat Placeholder: Double")
             
             // Notes Section
-            Section {
-                ZStack(alignment: .leading) {
-                    if notes.isEmpty {
-                        HStack {
-                            Text("Enter notes here.")
-                                .foregroundColor(Color.gray)
-                                .font(.custom("HelveticaNeue", size: 13))
-                                .padding(.all)
-                            Spacer()
-                        }
-                    }
-                    TextEditor(text: $notes)
-                        .opacity(notes.isEmpty ? 0.25 : 1)
-                        .font(.custom("HelveticaNeue", size: 13))
-                        .padding(.horizontal)
-                }
+            Section(header: Text("Note")) {
+                TextEditor(text: $notes)
+                    .opacity(notes.isEmpty ? 0.25 : 1)
+                    .font(.custom("HelveticaNeue", size: 13))
+                    .padding(.horizontal)
             }
             
             Button {
