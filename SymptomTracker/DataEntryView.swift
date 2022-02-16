@@ -19,12 +19,7 @@ struct DataEntryView: View {
         sortDescriptors: [],
         animation: .default) private var entries: FetchedResults<Entry>
     
-    
-    
-    @State var coughSeverityIndex = SymptomSeverity.unknown.rawValue
     @State var coughSeverity = SymptomSeverity.unknown
-    
-    @State var malaiseSeverityIndex = SymptomSeverity.unknown.rawValue
     @State var malaiseSeverity = SymptomSeverity.unknown
     
     @State var notes = ""
@@ -33,22 +28,8 @@ struct DataEntryView: View {
     var body: some View {
         Form {
             Text("DataEntryView")
-            Picker("Cough Severity", selection: $coughSeverityIndex) {
-                ForEach(0..<SymptomSeverity.allCases.count) {
-                    Text(SymptomSeverity.allCases[$0].text).tag($0)
-                }.onChange(of: coughSeverityIndex) { newValue in
-                    coughSeverity = SymptomSeverity(rawValue: Int(coughSeverityIndex)) ?? .unknown
-                }
-            }
-            //            .pickerStyle(.segmented)
-            
-            Picker("Malaise Severity", selection: $malaiseSeverityIndex) {
-                ForEach(0..<SymptomSeverity.allCases.count) {
-                    Text(SymptomSeverity.allCases[$0].text).tag($0)
-                }.onChange(of: malaiseSeverityIndex) { newValue in
-                    malaiseSeverity = SymptomSeverity(rawValue: Int(malaiseSeverityIndex)) ?? .unknown
-                }
-            }
+            SymptomSeverityPickerView(categoryName: "Cough Severity", selectionSeverity: $coughSeverity)
+            SymptomSeverityPickerView(categoryName: "Malaise Severity", selectionSeverity: $malaiseSeverity)
             
             Text("fever Placeholder: Double")
             Text("o2Sat Placeholder: Double")
@@ -80,14 +61,12 @@ struct DataEntryView: View {
                 
                 // Cough
                 coughSeverity = SymptomSeverity.unknown
-                coughSeverityIndex = coughSeverity.rawValue
                 
                 // Fever
                 // TBA
                 
                 // Malaise
                 malaiseSeverity = SymptomSeverity.unknown
-                malaiseSeverityIndex = malaiseSeverity.rawValue
                 
                 // Notes
                 notes = ""
@@ -142,6 +121,22 @@ struct DataEntryView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             DataEntryView()
+        }
+    }
+}
+
+struct SymptomSeverityPickerView: View {
+    let categoryName: String
+    @Binding var selectionSeverity: SymptomSeverity
+    @State var selectionIndex: Int = SymptomSeverity.unknown.rawValue
+    
+    var body: some View {
+        Picker(categoryName, selection: $selectionIndex) {
+            ForEach(0..<SymptomSeverity.allCases.count) {
+                Text(SymptomSeverity.allCases[$0].text).tag($0)
+            }.onChange(of: selectionIndex) { newValue in
+                selectionSeverity = SymptomSeverity(rawValue: Int(selectionIndex)) ?? .unknown
+            }
         }
     }
 }
