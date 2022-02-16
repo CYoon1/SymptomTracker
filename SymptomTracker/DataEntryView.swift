@@ -63,7 +63,7 @@ struct DataEntryView: View {
                 coughSeverity = SymptomSeverity.unknown
                 
                 // Fever
-                // TBA
+                // Use Slider to Tenth.
                 
                 // Malaise
                 malaiseSeverity = SymptomSeverity.unknown
