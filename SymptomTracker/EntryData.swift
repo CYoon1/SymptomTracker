@@ -11,10 +11,10 @@ struct EntryData: Identifiable {
     var id: String = UUID().uuidString
     
     var cough: SymptomSeverity = .unknown
-    var fever: Double = 0
     var malaise: SymptomSeverity = .unknown
-    var note: String = ""
+    var fever: Double = 0
     var o2Sat: Double = 0
+    var note: String = ""
     var timeStamp = Date()
     
     init(cough : SymptomSeverity = .unknown, fever: Double = 0, malaise : SymptomSeverity = .unknown, note: String = "", o2Sat : Double = 0) {
