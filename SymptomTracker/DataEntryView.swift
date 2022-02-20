@@ -21,17 +21,30 @@ struct DataEntryView: View {
     
     @State var coughSeverity = SymptomSeverity.unknown
     @State var malaiseSeverity = SymptomSeverity.unknown
-    
+    @State var feverTemp: Double = 98.6
+    @State var o2Sat: Double = 100
     @State var notes = ""
     
+    @State private var isEditingTemp = false
+    @State private var isEditingO2 = false
     
     var body: some View {
         Form {
             Text("DataEntryView")
             SymptomSeverityPickerView(categoryName: "Cough Severity", selectionSeverity: $coughSeverity)
             SymptomSeverityPickerView(categoryName: "Malaise Severity", selectionSeverity: $malaiseSeverity)
-            
-            Text("fever Placeholder: Double")
+            HStack {
+                Text("Temperature: ")
+                Text(String(format: "%.1f", feverTemp))
+                    .foregroundColor(isEditingTemp ? .red : .primary)
+                Slider(value: $feverTemp, in: 95...105, step: 0.1) {
+                    Text("Temp: \(feverTemp)")
+                        .foregroundColor(isEditingTemp ? .red : .primary)
+                } onEditingChanged: { editing in
+                    isEditingTemp = editing
+                }
+            }
+
             Text("o2Sat Placeholder: Double")
             
             // Notes Section
@@ -44,18 +57,22 @@ struct DataEntryView: View {
             
             Button {
                 // Create Entry
-                addEntry(entryData: EntryData(cough: coughSeverity, malaise: malaiseSeverity, note: notes))
+                addEntry(entryData: EntryData(cough: coughSeverity, fever: feverTemp, malaise: malaiseSeverity, note: notes))
                 
                 // Reset all to default
                 
                 // Cough
                 coughSeverity = SymptomSeverity.unknown
                 
-                // Fever
-                // Use Slider to Tenth.
-                
                 // Malaise
                 malaiseSeverity = SymptomSeverity.unknown
+                
+                // Fever
+                // Use Slider to Tenth.
+                feverTemp = 98.6
+                
+                // O2
+                o2Sat = 100
                 
                 // Notes
                 notes = ""
