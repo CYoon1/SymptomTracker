@@ -25,27 +25,13 @@ struct DataEntryView: View {
     @State var o2Sat: Double = 100
     @State var notes = ""
     
-    @State private var isEditingTemp = false
-    @State private var isEditingO2 = false
-    
     var body: some View {
         Form {
             Text("DataEntryView")
             SymptomSeverityPickerView(categoryName: "Cough Severity", selectionSeverity: $coughSeverity)
             SymptomSeverityPickerView(categoryName: "Malaise Severity", selectionSeverity: $malaiseSeverity)
-            HStack {
-                Text("Temperature: ")
-                Text(String(format: "%.1f", feverTemp))
-                    .foregroundColor(isEditingTemp ? .red : .primary)
-                Slider(value: $feverTemp, in: 95...105, step: 0.1) {
-                    Text("Temp: \(feverTemp)")
-                        .foregroundColor(isEditingTemp ? .red : .primary)
-                } onEditingChanged: { editing in
-                    isEditingTemp = editing
-                }
-            }
-
-            Text("o2Sat Placeholder: Double")
+            SliderView(categoryName: "Temperature", lowerRange: 95, upperRange: 105, step: 0.1, value: $feverTemp)
+            SliderView(categoryName: "O2 Saturation", lowerRange: 90, upperRange: 100, step: 0.01, value: $o2Sat)
             
             // Notes Section
             Section(header: Text("Note")) {
@@ -57,7 +43,7 @@ struct DataEntryView: View {
             
             Button {
                 // Create Entry
-                addEntry(entryData: EntryData(cough: coughSeverity, fever: feverTemp, malaise: malaiseSeverity, note: notes))
+                addEntry(entryData: EntryData(cough: coughSeverity, fever: feverTemp, malaise: malaiseSeverity, note: notes, o2Sat: o2Sat))
                 
                 // Reset all to default
                 
@@ -142,6 +128,29 @@ struct SymptomSeverityPickerView: View {
                 Text(SymptomSeverity.allCases[$0].text).tag($0)
             }.onChange(of: selectionIndex) { newValue in
                 selectionSeverity = SymptomSeverity(rawValue: Int(selectionIndex)) ?? .unknown
+            }
+        }
+    }
+}
+
+struct SliderView: View {
+    let categoryName: String
+    let lowerRange: Double
+    let upperRange: Double
+    let step: Double
+    @Binding var value: Double
+    @State var isEditing = false
+    
+    var body: some View {
+        HStack {
+            Text("\(categoryName): ")
+            Text(String(format: "%.1f", value))
+                .foregroundColor(isEditing ? .red : .primary)
+            Slider(value: $value, in: lowerRange...upperRange, step: step) {
+                Text("Temp: \(value)")
+                    .foregroundColor(isEditing ? .red : .primary)
+            } onEditingChanged: { editing in
+                isEditing = editing
             }
         }
     }
