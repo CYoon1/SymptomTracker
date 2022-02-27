@@ -24,14 +24,42 @@ struct DataEntryView: View {
     @State var feverTemp: Double = 98.6
     @State var o2Sat: Double = 100
     @State var notes = ""
+    @State var useTemp = false
+    @State var useSat = false
     
     var body: some View {
         Form {
             Text("DataEntryView")
             SymptomSeverityPickerView(categoryName: "Cough Severity", selectionSeverity: $coughSeverity)
             SymptomSeverityPickerView(categoryName: "Malaise Severity", selectionSeverity: $malaiseSeverity)
-            SliderView(categoryName: "Temperature", lowerRange: 95, upperRange: 105, step: 0.1, format: "%.1f", value: $feverTemp)
-            SliderView(categoryName: "O2 Saturation", lowerRange: 90, upperRange: 100, step: 0.01, format: "%.2f", value: $o2Sat)
+            Button {
+                useTemp.toggle()
+            } label: {
+                HStack {
+                    Text("Use Temperature")
+                    Spacer()
+                    Text(useTemp ? "Yes" : "No")
+                }
+            }
+            if(useTemp) {
+                SliderView(categoryName: "Temperature", lowerRange: 95, upperRange: 105, step: 0.1, format: "%.1f", value: $feverTemp)
+            } else {
+                Text("Temperature : N/A")
+            }
+            Button {
+                    useSat.toggle()
+            } label: {
+                HStack {
+                    Text("Use O2 Saturation")
+                    Spacer()
+                    Text(useSat ? "Yes" : "No")
+                }
+            }
+            if(useSat) {
+                SliderView(categoryName: "O2 Saturation", lowerRange: 90, upperRange: 100, step: 0.01, format: "%.2f", value: $o2Sat)
+            } else {
+                Text("O2 Saturation: N/A")
+            }
             
             // Notes Section
             Section(header: Text("Note")) {

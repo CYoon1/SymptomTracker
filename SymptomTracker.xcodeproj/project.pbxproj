@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		913AD0F627B9D3E90050C3C3 /* DataEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AD0F527B9D3E90050C3C3 /* DataEntryView.swift */; };
+		D847B87427CC253A00EC261F /* DataVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = D847B87327CC253A00EC261F /* DataVM.swift */; };
 		D84C7D0B27BDB463001CA5AC /* TemperatureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84C7D0A27BDB463001CA5AC /* TemperatureSelectionView.swift */; };
 		D8AFAAE327B9CDE700A2AC06 /* SymptomTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAAE227B9CDE700A2AC06 /* SymptomTrackerApp.swift */; };
 		D8AFAAE527B9CDE700A2AC06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AFAAE427B9CDE700A2AC06 /* ContentView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		913AD0F527B9D3E90050C3C3 /* DataEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntryView.swift; sourceTree = "<group>"; };
+		D847B87327CC253A00EC261F /* DataVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataVM.swift; sourceTree = "<group>"; };
 		D84C7D0A27BDB463001CA5AC /* TemperatureSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureSelectionView.swift; sourceTree = "<group>"; };
 		D8AFAADF27B9CDE700A2AC06 /* SymptomTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymptomTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AFAAE227B9CDE700A2AC06 /* SymptomTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomTrackerApp.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				D8AFAAE427B9CDE700A2AC06 /* ContentView.swift */,
 				D8AFAAEB27B9CDE800A2AC06 /* Persistence.swift */,
 				913AD0F527B9D3E90050C3C3 /* DataEntryView.swift */,
+				D847B87327CC253A00EC261F /* DataVM.swift */,
 				D8AFAB1127B9DBD200A2AC06 /* EntryData.swift */,
 				D84C7D0A27BDB463001CA5AC /* TemperatureSelectionView.swift */,
 				D8AFAAED27B9CDE800A2AC06 /* SymptomTracker.xcdatamodeld */,
@@ -276,6 +279,7 @@
 				D8AFAAEF27B9CDE800A2AC06 /* SymptomTracker.xcdatamodeld in Sources */,
 				D8AFAAEC27B9CDE800A2AC06 /* Persistence.swift in Sources */,
 				D8AFAAE527B9CDE700A2AC06 /* ContentView.swift in Sources */,
+				D847B87427CC253A00EC261F /* DataVM.swift in Sources */,
 				D8AFAB1227B9DBD200A2AC06 /* EntryData.swift in Sources */,
 				D8AFAAE327B9CDE700A2AC06 /* SymptomTrackerApp.swift in Sources */,
 				D84C7D0B27BDB463001CA5AC /* TemperatureSelectionView.swift in Sources */,
