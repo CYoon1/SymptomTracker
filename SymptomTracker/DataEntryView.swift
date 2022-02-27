@@ -30,8 +30,8 @@ struct DataEntryView: View {
             Text("DataEntryView")
             SymptomSeverityPickerView(categoryName: "Cough Severity", selectionSeverity: $coughSeverity)
             SymptomSeverityPickerView(categoryName: "Malaise Severity", selectionSeverity: $malaiseSeverity)
-            SliderView(categoryName: "Temperature", lowerRange: 95, upperRange: 105, step: 0.1, value: $feverTemp)
-            SliderView(categoryName: "O2 Saturation", lowerRange: 90, upperRange: 100, step: 0.01, value: $o2Sat)
+            SliderView(categoryName: "Temperature", lowerRange: 95, upperRange: 105, step: 0.1, format: "%.1f", value: $feverTemp)
+            SliderView(categoryName: "O2 Saturation", lowerRange: 90, upperRange: 100, step: 0.01, format: "%.2f", value: $o2Sat)
             
             // Notes Section
             Section(header: Text("Note")) {
@@ -138,13 +138,14 @@ struct SliderView: View {
     let lowerRange: Double
     let upperRange: Double
     let step: Double
+    let format: String
     @Binding var value: Double
     @State var isEditing = false
     
     var body: some View {
         HStack {
             Text("\(categoryName): ")
-            Text(String(format: "%.1f", value))
+            Text(String(format: format, value))
                 .foregroundColor(isEditing ? .red : .primary)
             Slider(value: $value, in: lowerRange...upperRange, step: step) {
                 Text("Temp: \(value)")
