@@ -71,7 +71,7 @@ struct DataEntryView: View {
             
             Button {
                 // Create Entry
-                addEntry(entryData: EntryData(cough: coughSeverity, fever: feverTemp, malaise: malaiseSeverity, note: notes, o2Sat: o2Sat))
+                addEntry(entryData: EntryData(cough: coughSeverity, fever: feverTemp, malaise: malaiseSeverity, note: notes, o2Sat: o2Sat, useTemp: useTemp, useSat: useSat))
                 
                 // Reset all to default
                 
@@ -91,6 +91,10 @@ struct DataEntryView: View {
                 // Notes
                 notes = ""
                 
+                // Toggles
+                useTemp = false
+                useSat = false
+                
             } label: {
                 Text("Add")
             }
@@ -99,7 +103,19 @@ struct DataEntryView: View {
             ForEach(entries) { entry in
                 HStack {
                     let cough = SymptomSeverity(rawValue: Int(entry.cough)) ?? .none
-                    Text(cough.text)
+                    let malaise = SymptomSeverity(rawValue: Int(entry.malaise)) ?? .none
+                    let temp = entry.fever
+                    VStack {
+                        Text(cough.text)
+                        Text(malaise.text)
+                        if entry.useTemp {
+                            Text("\(temp) degrees")
+                        } else {
+                            Text("No Temp")
+                        }
+                    }
+                    
+//                    EntryDisplayView(entry: entry)
                 }
             }.onDelete(perform: deleteEntries)
             
@@ -180,6 +196,33 @@ struct SliderView: View {
                     .foregroundColor(isEditing ? .red : .primary)
             } onEditingChanged: { editing in
                 isEditing = editing
+            }
+        }
+    }
+}
+
+struct EntryDisplayView: View {
+    let entry : Entry
+    var body: some View {
+        VStack {
+            HStack {
+                let cough = SymptomSeverity(rawValue: Int(entry.cough)) ?? .none
+                Text("Cough")
+                Spacer()
+                Text("\(cough.text)")
+            }
+            HStack {
+                let malaise = SymptomSeverity(rawValue: Int(entry.malaise)) ?? .none
+                Text("Malaise")
+                Spacer()
+                Text("\(malaise.text)")
+            }
+            
+            HStack {
+                let temperature = entry.fever
+                Text("Temperature : ")
+                Spacer()
+                Text("\(entry.useTemp ? String(temperature) : "N/A")")
             }
         }
     }

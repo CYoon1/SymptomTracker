@@ -6,15 +6,15 @@
 //
 
 import Foundation
-
+import Combine
 
 class DataVM: ObservableObject, Identifiable {
     @Published var data : EntryData
     
     var id = ""
     
-    init() {
-        self.data = EntryData(cough: SymptomSeverity.unknown, fever: 0, malaise: SymptomSeverity.unknown, note: "", o2Sat: 0)
+    init(data : EntryData) {
+        self.data = data
     }
     
 }

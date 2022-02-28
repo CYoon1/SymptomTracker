@@ -17,8 +17,17 @@ struct EntryData: Identifiable {
     var note: String = ""
     var timeStamp = Date()
     
-    init(cough : SymptomSeverity = .unknown, fever: Double = 0, malaise : SymptomSeverity = .unknown, note: String = "", o2Sat : Double = 0) {
+    var useTemp: Bool = false
+    var useSat: Bool = false
+    
+    init(cough : SymptomSeverity = .unknown, fever: Double, malaise : SymptomSeverity = .unknown, note: String, o2Sat : Double, useTemp: Bool, useSat: Bool) {
         self.cough = cough
+        self.fever = fever
+        self.malaise  = malaise
+        self.note = note
+        self.o2Sat = o2Sat
+        self.useTemp = useTemp
+        self.useSat = useSat
     }
 }
 

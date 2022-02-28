@@ -7,12 +7,14 @@
         <attribute name="note" optional="YES" attributeType="String"/>
         <attribute name="o2Sat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="useSat" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="useTemp" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
+        <element name="Entry" positionX="-63" positionY="-9" width="128" height="149"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="Entry" positionX="-63" positionY="-9" width="128" height="119"/>
     </elements>
 </model>
