@@ -130,6 +130,12 @@ extension DataEntryView {
             
             entry.timeStamp = entryData.timeStamp
             entry.cough = Int16(entryData.cough.rawValue)
+            entry.malaise = Int16(entryData.malaise.rawValue)
+            entry.useTemp = entryData.useTemp
+            entry.fever = entryData.fever
+            entry.note = entryData.note
+            entry.useSat = entryData.useSat
+            entry.o2Sat = entryData.o2Sat
             
             do {
                 try viewContext.save()
