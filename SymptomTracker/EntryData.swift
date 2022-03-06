@@ -10,6 +10,7 @@ import Foundation
 struct EntryData: Identifiable {
     var id: String = UUID().uuidString
     
+    var name: String = ""
     var cough: SymptomSeverity = .unknown
     var malaise: SymptomSeverity = .unknown
     var fever: Double = 0
@@ -20,7 +21,8 @@ struct EntryData: Identifiable {
     var useTemp: Bool = false
     var useSat: Bool = false
     
-    init(cough : SymptomSeverity = .unknown, fever: Double, malaise : SymptomSeverity = .unknown, note: String, o2Sat : Double, useTemp: Bool, useSat: Bool) {
+    init(cough : SymptomSeverity = .unknown, name: String, fever: Double, malaise : SymptomSeverity = .unknown, note: String, o2Sat : Double, useTemp: Bool, useSat: Bool) {
+        self.name = name
         self.cough = cough
         self.fever = fever
         self.malaise  = malaise

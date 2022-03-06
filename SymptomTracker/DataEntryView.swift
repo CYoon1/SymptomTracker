@@ -71,7 +71,7 @@ struct DataEntryView: View {
             
             Button {
                 // Create Entry
-                addEntry(entryData: EntryData(cough: coughSeverity, fever: feverTemp, malaise: malaiseSeverity, note: notes, o2Sat: o2Sat, useTemp: useTemp, useSat: useSat))
+                addEntry(entryData: EntryData(cough: coughSeverity, name: "", fever: feverTemp, malaise: malaiseSeverity, note: notes, o2Sat: o2Sat, useTemp: useTemp, useSat: useSat))
                 
                 // Reset all to default
                 
