@@ -114,9 +114,8 @@ struct DataEntryView: View {
                             Text("No Temp")
                         }
                     }
-                    
-//                    EntryDisplayView(entry: entry)
                 }
+//                EntryCardView(entry: entry)
             }.onDelete(perform: deleteEntries)
             
             

@@ -3,6 +3,7 @@
     <entity name="Entry" representedClassName="Entry" syncable="YES" codeGenerationType="class">
         <attribute name="cough" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="fever" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="malaise" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="note" optional="YES" attributeType="String"/>
@@ -15,7 +16,7 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Entry" positionX="-63" positionY="-9" width="128" height="164"/>
+        <element name="Entry" positionX="-63" positionY="-9" width="128" height="179"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
     </elements>
 </model>
